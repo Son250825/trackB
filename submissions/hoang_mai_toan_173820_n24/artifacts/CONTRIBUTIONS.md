@@ -1,47 +1,172 @@
-# CONTRIBUTIONS – Nhóm N24
 
-**Dự án:** Vườn Toán Lớp 3  
-**Track:** B – Phát triển tính năng bài tập ước lượng  
-**Số thành viên:** 3
+# CONTRIBUTIONS.md
+# BÁO CÁO ĐÓNG GÓP – NHÓM N24
 
-## 1. Phân công công việc
+## 1. Thông tin chung
 
-| Thành viên | Vai trò | Công việc phụ trách |
+| Thuộc tính | Nội dung |
+|---|---|
+| Dự án | Vườn Toán Lớp 3 |
+| Track | B – Phát triển tính năng bài tập ước lượng |
+| Mã nhóm | N24 |
+| Số thành viên | 3 |
+| Repository | https://github.com/Son250825/ktpmud-bkt-vuontoan-starter |
+
+## 2. Phân công vai trò
+
+Nhóm phân chia phạm vi công việc theo ba vai trò chính:
+
+| Alias | Vai trò | Phạm vi phụ trách |
 |---|---|---|
-| Lead-BE | Backend | Phát triển logic xử lý bài tập ước lượng trong `server/estimate.js`; tích hợp API chấm điểm và lưu kết quả trong `server/api.js`; phối hợp xử lý dữ liệu trong database. |
-| Dev-FE | Frontend | Phát triển giao diện bài tập ước lượng trong `public/exercise.html`; xử lý nhập đáp án, chuyển câu hỏi, kiểm tra dữ liệu đầu vào và hiển thị kết quả trong `public/assets/js/pages/exercise.js`. |
-| Dev-TEST | Testing & Documentation | Xây dựng các bài kiểm thử cho logic, API và giao diện trong thư mục `tests/`; kiểm tra các trường hợp hợp lệ và không hợp lệ; hỗ trợ viết tài liệu và cấu hình CI. |
+| Lead-BE | Backend Developer | Nghiệp vụ chấm điểm, API, xử lý dữ liệu và kết quả bài làm |
+| Dev-FE | Frontend Developer | Giao diện bài tập, tương tác người dùng, điều hướng và hiển thị kết quả |
+| Dev-TEST | Testing & Documentation | Kiểm thử, CI, báo cáo kết quả và tài liệu dự án |
 
-## 2. Đóng góp chi tiết
+## 3. Nội dung công việc và bằng chứng
 
-| Thành viên | Nội dung đóng góp | Bằng chứng |
-|---|---|---|
-| Thành viên 1 | Xây dựng chức năng chấm điểm bài tập ước lượng; xử lý dữ liệu đáp án; tích hợp lưu kết quả bài làm. | Commit/PR: [Bổ sung] |
-| Thành viên 2 | Xây dựng giao diện làm bài; xử lý nhập khoảng dưới, khoảng trên và đáp án; hiển thị phản hồi cho học sinh. | Commit/PR: [Bổ sung] |
-| Thành viên 3 | Viết kiểm thử tự động; kiểm tra các trường hợp biên; hỗ trợ hoàn thiện tài liệu và quy trình CI. | Commit/PR: [Bổ sung] |
+### 3.1. Lead-BE – Backend
 
-## 3. Cross-review
+**Phạm vi công việc:**
 
-Các thành viên phối hợp kiểm tra chéo phần việc của nhau trước khi hoàn thiện:
+- Phân tích yêu cầu nghiệp vụ của dạng bài tập ước lượng.
+- Xây dựng logic kiểm tra tính hợp lệ của khoảng ước lượng.
+- Xây dựng chức năng chấm điểm cho câu hỏi ước lượng.
+- Phân biệt kết quả đúng/sai của phần ước lượng và phần đáp án chính xác.
+- Tích hợp logic chấm điểm vào API nộp bài.
+- Xử lý lưu trữ và truy xuất kết quả bài làm.
+- Đảm bảo các dạng câu hỏi cũ tiếp tục sử dụng cơ chế chấm điểm hiện có.
 
-| Người kiểm tra | Phần việc được kiểm tra | Nội dung |
-|---|---|---|
-| Thành viên 1 | Frontend | Kiểm tra dữ liệu gửi từ giao diện có đúng định dạng backend yêu cầu không. |
-| Thành viên 2 | Backend | Kiểm tra kết quả chấm điểm và phản hồi trả về có phù hợp với giao diện không. |
-| Thành viên 3 | Backend và Frontend | Kiểm tra các trường hợp đầu vào, kết quả chấm điểm và tính ổn định của chức năng. |
+**Các file liên quan:**
 
-## 4. Chuẩn bị bảo vệ
+- `server/estimate.js`
+- `server/api.js`
+- `server/db.js`
+- `data/seed.json`
 
-Mỗi thành viên cần nắm được:
+**Commit bằng chứng:**
 
-- Thành viên 1: Cách hoạt động của `server/estimate.js`, API chấm bài và cơ chế lưu kết quả.
-- Thành viên 2: Cách giao diện hiển thị câu hỏi, nhận đáp án và gửi dữ liệu lên server.
-- Thành viên 3: Cách viết và chạy kiểm thử bằng `npm test`, ý nghĩa của từng nhóm test và quy trình CI.
+- `a19d3f8` – Complete estimate exercise feature and tests.
+- `6b9bd26` – Fix restore estimate exercise after refresh.
 
-Các thành viên đều cần hiểu luồng hoạt động tổng thể của tính năng, không chỉ phần việc cá nhân.
+### 3.2. Dev-FE – Frontend
 
-## 5. Sử dụng công cụ AI
+**Phạm vi công việc:**
 
-Nhóm có sử dụng ChatGPT để hỗ trợ giải thích mã nguồn, gợi ý cách triển khai, tìm lỗi, xây dựng kiểm thử và hoàn thiện tài liệu.
+- Tích hợp lối truy cập bài tập ước lượng từ giao diện học tập.
+- Xây dựng giao diện làm bài tập ước lượng.
+- Xử lý các trường nhập khoảng ước lượng và đáp án chính xác.
+- Xây dựng luồng điều hướng giữa các trường nhập liệu.
+- Kiểm tra dữ liệu đầu vào và hiển thị thông báo khi dữ liệu không hợp lệ.
+- Hiển thị phản hồi và kết quả chấm điểm cho người học.
+- Xử lý khôi phục trạng thái bài làm hoặc kết quả đã nộp khi tải lại trang.
 
-Các thành viên có trách nhiệm tự kiểm tra, chạy thử, hiểu và chịu trách nhiệm với phần nội dung được đưa vào sản phẩm. Chi tiết việc sử dụng AI được trình bày trong `AI_USE.md`.
+**Các file liên quan:**
+
+- `public/exercise.html`
+- `public/assets/js/pages/exercise.js`
+- `public/assets/js/components/curriculum-view.js`
+
+**Commit bằng chứng:**
+
+- `a19d3f8` – Complete estimate exercise feature and tests.
+- `6b9bd26` – Fix restore estimate exercise after refresh.
+
+### 3.3. Dev-TEST – Testing & Documentation
+
+**Phạm vi công việc:**
+
+- Xây dựng và bổ sung kiểm thử cho chức năng bài tập ước lượng.
+- Kiểm tra logic chấm điểm với các trường hợp thông thường, trường hợp biên và dữ liệu không hợp lệ.
+- Kiểm thử API nộp bài và truy xuất kết quả.
+- Kiểm thử giao diện và khả năng khôi phục trạng thái sau khi tải lại trang.
+- Kiểm tra kết quả chạy toàn bộ bộ kiểm thử bằng lệnh `npm test`.
+- Xây dựng cấu hình CI để tự động chạy kiểm thử khi có Pull Request hoặc push lên nhánh chính.
+- Tổng hợp kết quả kiểm thử và hoàn thiện tài liệu dự án.
+
+**Các file liên quan:**
+
+- `tests/`
+- `.github/workflows/ci.yml`
+- `submissions/hoang_mai_toan_173820_n24/artifacts/TEST_REPORT.md`
+- `submissions/hoang_mai_toan_173820_n24/artifacts/REQUIREMENTS.md`
+- `submissions/hoang_mai_toan_173820_n24/artifacts/DECISIONS.md`
+- `submissions/hoang_mai_toan_173820_n24/artifacts/SECURITY_PRIVACY_CHECKLIST.md`
+- `submissions/hoang_mai_toan_173820_n24/artifacts/AI_USE.md`
+
+**Commit bằng chứng:**
+
+- `a19d3f8` – Complete estimate exercise feature and tests.
+- `534d9c4` – Update test report and rename submission folder.
+- `7c9849d` – Resolve REQUIREMENTS.md merge conflict.
+- `58d89cf` – Them file REQUIREMENTS.md.
+- `6b9bd26` – Fix restore estimate exercise after refresh.
+
+## 4. Bằng chứng tích hợp và kiểm thử
+
+### 4.1. Pull Request
+
+| Nội dung | Thông tin |
+|---|---|
+| Pull Request | #1 – Complete estimate exercise feature and tests |
+| Nhánh nguồn | `feature/track-b-estimate` |
+| Nhánh đích | `main` |
+| Người tạo Pull Request | `Son250825` |
+| Người thực hiện merge | `Son250825` |
+| Commit trong Pull Request | `a19d3f8`, `7c9849d` |
+| Số file thay đổi | 28 |
+| Trạng thái | Merged |
+
+Pull Request được sử dụng để tích hợp tính năng bài tập ước lượng vào nhánh chính của dự án.
+
+### 4.2. Kết quả kiểm thử
+
+- Pull Request có 3 checks passed.
+- GitHub Actions được cấu hình để chạy kiểm thử tự động.
+- Bộ kiểm thử gồm Unit Tests, API Tests và UI Tests.
+- Kết quả chạy gần nhất: 52/52 tests passed, không có test thất bại.
+
+### 4.3. Ghi nhận lịch sử Git
+
+Các commit được liệt kê trong tài liệu được ghi nhận dưới tài khoản Git `Son250825`.
+
+Các commit là bằng chứng về những thay đổi được thực hiện trong repository. Việc phân loại commit theo Backend, Frontend và Testing thể hiện phạm vi kỹ thuật của các thay đổi, không đồng nghĩa với việc mỗi alias có một lịch sử commit riêng.
+
+## 5. Cross-review
+
+Nhóm xác định các phạm vi cần kiểm tra chéo như sau:
+
+| Alias | Phạm vi kiểm tra |
+|---|---|
+| Lead-BE | Nghiệp vụ Backend, API và xử lý kết quả |
+| Dev-FE | Giao diện, luồng làm bài và tương tác người dùng |
+| Dev-TEST | Bộ kiểm thử, CI và tài liệu dự án |
+
+Pull Request #1 hiện chưa ghi nhận review thủ công và không có bình luận review.
+
+Ba checks passed là kết quả kiểm tra tự động của hệ thống, không được tính là ba lượt review của thành viên.
+
+Do đó, nhóm không ghi nhận hoạt động cross-review chính thức trên Pull Request này.
+
+## 6. Chuẩn bị bảo vệ dự án
+
+| Alias | Nội dung phụ trách trình bày |
+|---|---|
+| Lead-BE | Kiến trúc xử lý phía máy chủ, logic chấm điểm, API và lưu kết quả |
+| Dev-FE | Giao diện bài tập, luồng làm bài, kiểm tra dữ liệu và hiển thị phản hồi |
+| Dev-TEST | Cấu trúc kiểm thử, các trường hợp kiểm thử, kết quả chạy test và CI |
+
+Các alias cần nắm được luồng hoạt động tổng thể của sản phẩm để có thể giải thích và trả lời câu hỏi khi bảo vệ.
+
+## 7. Sử dụng công cụ hỗ trợ
+
+Trong quá trình thực hiện dự án, nhóm có sử dụng ChatGPT để hỗ trợ:
+
+- Giải thích cấu trúc repository và mã nguồn có sẵn.
+- Phân tích yêu cầu và đề xuất phương án triển khai.
+- Hỗ trợ tìm nguyên nhân lỗi trong quá trình phát triển.
+- Đề xuất các trường hợp kiểm thử.
+- Hỗ trợ rà soát và hoàn thiện tài liệu.
+
+Các nội dung do công cụ AI đề xuất được kiểm tra lại thông qua việc đọc mã nguồn, chạy thử chương trình và thực hiện kiểm thử trước khi sử dụng.
+
+Chi tiết về việc sử dụng AI được trình bày trong `AI_USE.md`.
